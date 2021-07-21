@@ -6,11 +6,7 @@ import (
 )
 
 type (
-	ListServerModelsResponse struct {
-		Models []serverModelObj.ServerModel `json:"models"`
-		Extra  map[string]interface{}       `json:"extra"`
-	}
-
+	// input to POST /v1/infrastructure/server/create
 	NewServerRequest struct {
 		Hostname         string                      `json:"hostname"`
 		Model            *serverModelObj.ServerModel `json:"model"`
@@ -19,6 +15,7 @@ type (
 		Cycle            CycleServerMeta             `json:"cycle"`
 	}
 
+	// output from POST /v1/infrastructure/server/create
 	NewServerResponse struct {
 		ProviderId string `json:"provider_id"` // what is the ID of the server at the provider?
 		Auth       struct {
@@ -28,12 +25,14 @@ type (
 		Extra map[string]interface{} `json:"extra"`
 	}
 
+	// input to POST /v1/infrastructure/server/restart
 	RestartServerRequest struct {
 		ProviderId string          `json:"provider_id"` // what is the ID of the server at the provider?
 		Hostname   string          `json:"hostname"`    // send hostname in case provider requires it
 		Cycle      CycleServerMeta `json:"cycle"`
 	}
 
+	// input to POST /v1/infrastructure/server/delete
 	DeleteServerRequest struct {
 		ProviderId string          `json:"provider_id"` // what is the ID of the server at the provider?
 		Hostname   string          `json:"hostname"`    // send hostname in case provider requires it
