@@ -6,6 +6,12 @@ type (
 		Description string   `bson:"description" json:"description"`
 		Specs       Specs    `bson:"specs" json:"specs"`
 		Provider    Provider `bson:"provider" json:"provider"`
+		Pricing     Pricing  `bson:"pricing" json:"pricing"`
+	}
+
+	Pricing struct {
+		HourlyMils  int `json:"hourly"` // $1 = 1000 Mills, $0.10 = 100 Mills
+		MonthlyMils int `json:"monthly"`
 	}
 
 	Provider struct {
