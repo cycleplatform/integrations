@@ -1,19 +1,21 @@
 package types
 
-import serverModel "github.com/cycleplatform/integrations/types/server-model"
+import (
+	"github.com/cycleplatform/integrations/types/objects"
+)
 
 type (
 	ListServersResponse struct {
-		Models []serverModel.ServerModel `json:"models"`
-		Extra  map[string]interface{}    `json:"extra"`
+		Models []objects.ServerModel  `json:"models"`
+		Extra  map[string]interface{} `json:"extra"`
 	}
 
 	NewServerRequest struct {
-		Hostname         string                   `json:"hostname"`
-		Model            *serverModel.ServerModel `json:"model"`
-		Location         string                   `json:"location"`
-		ProvisionOptions map[string]interface{}   `json:"provision_options"` // any extra provision options that might be needed for certain providers
-		Cycle            CycleServerMeta          `json:"cycle"`
+		Hostname         string                 `json:"hostname"`
+		Model            *objects.ServerModel   `json:"model"`
+		Location         *objects.Location      `json:"location"`
+		ProvisionOptions map[string]interface{} `json:"provision_options"` // any extra provision options that might be needed for certain providers
+		Cycle            CycleServerMeta        `json:"cycle"`
 	}
 
 	NewServerResponse struct {
