@@ -1,12 +1,12 @@
-package objects
+package serverModelObj
 
 type (
 	ServerModel struct {
-		Name        string         `bson:"name" json:"name"`
-		Description string         `bson:"description" json:"description"`
-		Specs       ServerSpecs    `bson:"specs" json:"specs"`
-		Provider    ServerProvider `bson:"provider" json:"provider"`
-		Pricing     Pricing        `bson:"pricing" json:"pricing"`
+		Name        string   `bson:"name" json:"name"`
+		Description string   `bson:"description" json:"description"`
+		Specs       Specs    `bson:"specs" json:"specs"`
+		Provider    Provider `bson:"provider" json:"provider"`
+		Pricing     Pricing  `bson:"pricing" json:"pricing"`
 	}
 
 	Pricing struct {
@@ -14,14 +14,14 @@ type (
 		MonthlyMils int `json:"monthly"`
 	}
 
-	ServerProvider struct {
+	Provider struct {
 		Category  string   `bson:"category" json:"category"`
 		Class     string   `bson:"class" json:"class,omitempty"`
-		Model     string   `bson:"model" json:"model"` // the primary ID of how we reference this server / plan / model
+		ModelId   string   `bson:"model_id" json:"model_id"` // the primary ID of how we reference this server / plan / model
 		Locations []string `bson:"locations" json:"locations"`
 	}
 
-	ServerSpecs struct {
+	Specs struct {
 		Cpu      CPU       `bson:"cpu" json:"cpu"`
 		Gpu      *GPU      `bson:"gpu" json:"gpu"`
 		Memory   Memory    `bson:"memory" json:"memory"`
