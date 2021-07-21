@@ -22,8 +22,8 @@ type (
 	}
 
 	Specs struct {
-		Cpus     CPU       `bson:"cpus" json:"cpus"`
-		Gpus     GPU       `bson:"gpus" json:"gpus"`
+		Cpu      CPU       `bson:"cpu" json:"cpu"`
+		Gpu      GPU       `bson:"gpu" json:"gpu"`
 		Memory   Memory    `bson:"memory" json:"memory"`
 		Storage  []Storage `bson:"storage" json:"storage"`
 		Network  []NIC     `bson:"network" json:"network"`
