@@ -37,15 +37,15 @@ type (
 
 	CPU struct {
 		Count   uint              `bson:"count" json:"count"`
-		Cores   uint              `bson:"cores" json:"cores"`
-		Threads uint              `bson:"threads" json:"threads"`
+		Cores   *uint             `bson:"cores" json:"cores"`
+		Threads *uint             `bson:"threads" json:"threads"`
 		Type    string            `bson:"type" json:"type"`
 		Extra   map[string]string `bson:"extra" json:"extra,omitempty"`
 	}
 
 	GPU struct {
 		Count uint              `bson:"count" json:"count"`
-		Cores uint              `bson:"cores" json:"cores"`
+		Cores *uint             `bson:"cores" json:"cores"`
 		Type  string            `bson:"type" json:"type"`
 		Extra map[string]string `bson:"extra" json:"extra,omitempty"`
 	}
