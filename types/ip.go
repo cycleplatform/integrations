@@ -6,7 +6,7 @@ import (
 
 type (
 	NewIPRequest struct {
-		Type     IPKind                `json:"type"`
+		Kind     IPKind                `json:"kind"`
 		ServerID string                `json:"server_id"`
 		Location *locationObj.Location `json:"location"`
 		Cycle    CycleIPMeta           `json:"cycle"`
@@ -21,7 +21,7 @@ type (
 	}
 
 	DeleteIPRequest struct {
-		Type     IPKind                `json:"type"`
+		Kind     IPKind                `json:"kind"`
 		IpID     string                `json:"ip_id"` // what is the ID of the ip at the provider?
 		ServerID string                `json:"server_id"`
 		Location *locationObj.Location `json:"location"`
@@ -29,7 +29,7 @@ type (
 	}
 
 	AssignIPRequest struct {
-		Type           IPKind                `json:"type"`
+		Kind           IPKind                `json:"kind"`
 		IpID           string                `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string                `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		ServerID       string                `json:"server_id"`
@@ -43,7 +43,7 @@ type (
 	}
 
 	UnassignIPRequest struct {
-		Type           IPKind                `json:"type"`
+		Kind           IPKind                `json:"kind"`
 		IpID           string                `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string                `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		ServerID       string                `json:"server_id"`
