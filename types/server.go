@@ -27,16 +27,18 @@ type (
 
 	// input to POST /v1/infrastructure/server/restart
 	RestartServerRequest struct {
-		ServerId string          `json:"server_id"` // what is the ID of the server at the provider?
-		Hostname string          `json:"hostname"`  // send hostname in case provider requires it
-		Cycle    CycleServerMeta `json:"cycle"`
+		ServerId string                      `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname string                      `json:"hostname"`  // send hostname in case provider requires it
+		Model    *serverModelObj.ServerModel `json:"model"`
+		Cycle    CycleServerMeta             `json:"cycle"`
 	}
 
 	// input to POST /v1/infrastructure/server/delete
 	DeleteServerRequest struct {
-		ServerId string          `json:"server_id"` // what is the ID of the server at the provider?
-		Hostname string          `json:"hostname"`  // send hostname in case provider requires it
-		Cycle    CycleServerMeta `json:"cycle"`
+		ServerId string                      `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname string                      `json:"hostname"`  // send hostname in case provider requires it
+		Model    *serverModelObj.ServerModel `json:"model"`
+		Cycle    CycleServerMeta             `json:"cycle"`
 	}
 
 	CycleServerMeta struct {
