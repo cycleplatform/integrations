@@ -17,8 +17,8 @@ type (
 
 	// output from POST /v1/infrastructure/server/create
 	NewServerResponse struct {
-		ProviderId string `json:"provider_id"` // what is the ID of the server at the provider?
-		Auth       struct {
+		ServerId string `json:"server_id"` // what is the ID of the server at the provider?
+		Auth     struct {
 			InitialIPs []string `json:"initial_ips"`
 			MacAddrs   []string `json:"mac_addrs"`
 		} `json:"auth"`
@@ -27,16 +27,16 @@ type (
 
 	// input to POST /v1/infrastructure/server/restart
 	RestartServerRequest struct {
-		ProviderId string          `json:"provider_id"` // what is the ID of the server at the provider?
-		Hostname   string          `json:"hostname"`    // send hostname in case provider requires it
-		Cycle      CycleServerMeta `json:"cycle"`
+		ServerId string          `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname string          `json:"hostname"`  // send hostname in case provider requires it
+		Cycle    CycleServerMeta `json:"cycle"`
 	}
 
 	// input to POST /v1/infrastructure/server/delete
 	DeleteServerRequest struct {
-		ProviderId string          `json:"provider_id"` // what is the ID of the server at the provider?
-		Hostname   string          `json:"hostname"`    // send hostname in case provider requires it
-		Cycle      CycleServerMeta `json:"cycle"`
+		ServerId string          `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname string          `json:"hostname"`  // send hostname in case provider requires it
+		Cycle    CycleServerMeta `json:"cycle"`
 	}
 
 	CycleServerMeta struct {
