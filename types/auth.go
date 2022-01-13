@@ -1,8 +1,10 @@
 package types
 
 type (
+	// Providers have many different things they might want during auth, we need to be flexibile.
 	Auth struct {
-		Project      *string       `json:"project,omitempty"` // can also double as 'namespace'
+		Namespace    *string       `json:"namespace,omitempty"` // can also double as 'project'
+		Region       *string       `json:"region,omitempty"`
 		APIKey       *string       `json:"api_key,omitempty"` // can also double as 'token'
 		Secret       *string       `json:"secret,omitempty"`
 		Base64Config *string       `json:"config,omitempty"` // if a provider needs a var more complex config, sent via base64
