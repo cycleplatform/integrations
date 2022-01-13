@@ -64,17 +64,8 @@ type (
 	}
 
 	NIC struct {
-		Count          uint     `bson:"count" json:"count"`
-		Scope          NICScope `bson:"scope" json:"scope"`
-		Type           string   `bson:"type" json:"type"`
-		ThroughputMbps uint     `bson:"throughput_mbps" json:"throughput_mbps"`
+		Scope          string `bson:"scope" json:"scope"`
+		Type           string `bson:"type" json:"type"`
+		ThroughputMbps uint   `bson:"throughput_mbps" json:"throughput_mbps"`
 	}
-
-	NICScope string
-)
-
-const (
-	NICS_PUBLIC  NICScope = "public"
-	NICS_PRIVATE NICScope = "private"
-	NICS_SHARED  NICScope = "shared"
 )
