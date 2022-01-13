@@ -5,7 +5,7 @@ type (
 		Name         string            `bson:"name" json:"name"`
 		Geographic   *Geographic       `bson:"geographic" json:"geographic"`
 		Provider     Provider          `bson:"provider" json:"provider"`
-		Features     FeatureSets       `bson:"features" json:"features"`
+		Features     Features          `bson:"features" json:"features"`
 		Abbreviation string            `bson:"abbreviation" json:"abbreviation"`
 		Annotations  map[string]string `bson:"annotations" json:"annotations"`
 	}
@@ -24,17 +24,8 @@ type (
 		Code       string `bson:"code" json:"code"`
 	}
 
-	FeatureSets struct {
-		Available Features `bson:"available" json:"available"`
-		Supported Features `bson:"supported" json:"supported"`
+	Features struct {
+		Available []string `bson:"available" json:"available"`
+		Supported []string `bson:"supported" json:"supported"`
 	}
-
-	Features []Feature
-
-	Feature string
-)
-
-const (
-	LF_BARE_METAL Feature = "bare-metal"
-	LF_VM         Feature = "virtual-machine"
 )
