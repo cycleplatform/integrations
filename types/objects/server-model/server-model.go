@@ -7,6 +7,7 @@ type (
 		Specs       Specs    `bson:"specs" json:"specs"`
 		Provider    Provider `bson:"provider" json:"provider"`
 		Pricing     Pricing  `bson:"pricing" json:"pricing"`
+		Compatible  *bool    `bson:"compatible" json:"compatible"`
 	}
 
 	Pricing struct {

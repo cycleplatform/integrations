@@ -8,6 +8,7 @@ type (
 		Features     Features          `bson:"features" json:"features"`
 		Abbreviation string            `bson:"abbreviation" json:"abbreviation"`
 		Annotations  map[string]string `bson:"annotations" json:"annotations"`
+		Compatible   *bool             `bson:"compatible" json:"compatible"`
 	}
 
 	Geographic struct {
