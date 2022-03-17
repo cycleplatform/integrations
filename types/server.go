@@ -4,8 +4,8 @@ type (
 	// input to POST /v1/infrastructure/server/create
 	NewServerRequest struct {
 		Hostname         string                 `json:"hostname"`
-		ModelID          string                 `json:"model"`
-		LocationID       string                 `json:"location"`
+		ModelId          string                 `json:"model_id"`
+		LocationID       string                 `json:"location_id"`
 		ProvisionOptions map[string]interface{} `json:"provision_options"` // any extra provision options that might be needed for certain providers
 		Cycle            CycleServerMeta        `json:"cycle"`
 	}
@@ -25,8 +25,8 @@ type (
 	RestartServerRequest struct {
 		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
 		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
-		ModelID    string          `json:"model"`
-		LocationID string          `json:"location"`
+		ModelId    string          `json:"model_id"`
+		LocationID string          `json:"location_id"`
 		Cycle      CycleServerMeta `json:"cycle"`
 	}
 
@@ -34,14 +34,16 @@ type (
 	DeleteServerRequest struct {
 		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
 		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
-		ModelID    string          `json:"model"`
-		LocationID string          `json:"location"`
+		ModelId    string          `json:"model_id"`
+		LocationID string          `json:"location_id"`
 		Cycle      CycleServerMeta `json:"cycle"`
 	}
 
 	CycleServerMeta struct {
-		ServerID   *string `json:"server_id"`   // the id of the server @ cycle
-		ModelID    *string `json:"model_id"`    // the id of the model @ cycle
-		LocationID *string `json:"location_id"` // the id of the location @ cycle
+		ServerID      *string `json:"server_id"`      // the id of the server @ cycle
+		ModelClass    *string `json:"model_class"`    // the class of the server @ cycle
+		ModelCategory *string `json:"model_category"` // the category of the server at Cycle
+		ModelID       *string `json:"model_id"`       // the id of the model @ cycle
+		LocationID    *string `json:"location_id"`    // the id of the location @ cycle
 	}
 )
