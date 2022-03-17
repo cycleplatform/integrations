@@ -1,24 +1,20 @@
 package types
 
-import (
-	locationObj "github.com/cycleplatform/integrations/types/objects/location"
-	serverModelObj "github.com/cycleplatform/integrations/types/objects/server-model"
-)
-
 type (
 	// input to POST /v1/infrastructure/server/create
 	NewServerRequest struct {
-		Hostname         string                      `json:"hostname"`
-		Model            *serverModelObj.ServerModel `json:"model"`
-		Location         *locationObj.Location       `json:"location"`
-		ProvisionOptions map[string]interface{}      `json:"provision_options"` // any extra provision options that might be needed for certain providers
-		Cycle            CycleServerMeta             `json:"cycle"`
+		Hostname         string                 `json:"hostname"`
+		ModelID          string                 `json:"model"`
+		LocationID       string                 `json:"location"`
+		ProvisionOptions map[string]interface{} `json:"provision_options"` // any extra provision options that might be needed for certain providers
+		Cycle            CycleServerMeta        `json:"cycle"`
 	}
 
 	// output from POST /v1/infrastructure/server/create
 	NewServerResponse struct {
 		ServerId string `json:"server_id"` // what is the ID of the server at the provider?
 		Auth     struct {
+			UUID       *string  `json:"uuid"`
 			InitialIPs []string `json:"initial_ips"`
 			MacAddrs   []string `json:"mac_addrs"`
 		} `json:"auth"`
@@ -27,18 +23,20 @@ type (
 
 	// input to POST /v1/infrastructure/server/restart
 	RestartServerRequest struct {
-		ServerId string                      `json:"server_id"` // what is the ID of the server at the provider?
-		Hostname string                      `json:"hostname"`  // send hostname in case provider requires it
-		Model    *serverModelObj.ServerModel `json:"model"`
-		Cycle    CycleServerMeta             `json:"cycle"`
+		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
+		ModelID    string          `json:"model"`
+		LocationID string          `json:"location"`
+		Cycle      CycleServerMeta `json:"cycle"`
 	}
 
 	// input to POST /v1/infrastructure/server/delete
 	DeleteServerRequest struct {
-		ServerId string                      `json:"server_id"` // what is the ID of the server at the provider?
-		Hostname string                      `json:"hostname"`  // send hostname in case provider requires it
-		Model    *serverModelObj.ServerModel `json:"model"`
-		Cycle    CycleServerMeta             `json:"cycle"`
+		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
+		ModelID    string          `json:"model"`
+		LocationID string          `json:"location"`
+		Cycle      CycleServerMeta `json:"cycle"`
 	}
 
 	CycleServerMeta struct {
