@@ -2,18 +2,19 @@ package types
 
 import (
 	locationObj "github.com/cycleplatform/integrations/types/objects/location"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type (
 	NewIPRequest struct {
 		Kind     IPKind                `json:"kind"`
-		ServerID string                `json:"server_id"`
+		ServerId string                `json:"server_id"`
 		Location *locationObj.Location `json:"location"`
 		Cycle    CycleIPMeta           `json:"cycle"`
 	}
 
 	NewIPResponse struct {
-		IpID           string `json:"ip_id"`            // what is the ID of the ip at the provider?
+		IpId           string `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		CIDR           string `bson:"cidr" json:"cidr"`
 		Gateway        string `bson:"gateway" json:"gateway"`
@@ -23,17 +24,17 @@ type (
 
 	DeleteIPRequest struct {
 		Kind           IPKind                `json:"kind"`
-		IpID           string                `json:"ip_id"`            // what is the ID of the ip at the provider?
+		IpId           string                `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string                `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
-		ServerID       string                `json:"server_id"`
+		ServerId       string                `json:"server_id"`
 		Location       *locationObj.Location `json:"location"`
 		Cycle          CycleIPMeta           `json:"cycle"`
 	}
 
 	CycleIPMeta struct {
-		PoolID     *string `json:"pool_id"`
-		ServerID   *string `json:"server_id"`
-		LocationID *string `json:"location_id"`
+		PoolID     *primitive.ObjectID `json:"pool_id"`
+		ServerID   *primitive.ObjectID `json:"server_id"`
+		LocationID *primitive.ObjectID `json:"location_id"`
 	}
 
 	IPKind string
