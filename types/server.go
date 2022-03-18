@@ -18,7 +18,7 @@ type (
 		Auth     struct {
 			UUID       *string  `json:"uuid"`
 			InitialIPs []string `json:"initial_ips"`
-			MacAddrs   []string `json:"mac_addrs"`
+			MacAddr    *string  `json:"mac_addr"`
 		} `json:"auth"`
 		Extra map[string]interface{} `json:"extra"`
 	}
