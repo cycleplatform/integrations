@@ -1,17 +1,16 @@
 package types
 
 import (
-	locationObj "github.com/cycleplatform/integrations/types/objects/location"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type (
 	// input to POST /v1/infrastructure/ip/assign
 	AssignIPRequest struct {
-		Kind     IPKind                `json:"kind"`
-		ServerId string                `json:"server_id"`
-		Location *locationObj.Location `json:"location"`
-		Cycle    CycleIPMeta           `json:"cycle"`
+		Kind       IPKind      `json:"kind"`
+		ServerId   string      `json:"server_id"`
+		LocationId string      `json:"location_id"`
+		Cycle      CycleIPMeta `json:"cycle"`
 	}
 
 	// output from POST /v1/infrastructure/ip/assign
@@ -26,12 +25,12 @@ type (
 
 	// input to POST /v1/infrastructure/ip/release
 	ReleaseIPRequest struct {
-		Kind           IPKind                `json:"kind"`
-		IpId           string                `json:"ip_id"`            // what is the ID of the ip at the provider?
-		IpAssignmentID string                `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
-		ServerId       string                `json:"server_id"`
-		Location       *locationObj.Location `json:"location"`
-		Cycle          CycleIPMeta           `json:"cycle"`
+		Kind           IPKind      `json:"kind"`
+		IpId           string      `json:"ip_id"`            // what is the ID of the ip at the provider?
+		IpAssignmentID string      `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
+		ServerId       string      `json:"server_id"`
+		LocationId     string      `json:"location_id"`
+		Cycle          CycleIPMeta `json:"cycle"`
 	}
 
 	CycleIPMeta struct {
