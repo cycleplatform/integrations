@@ -6,14 +6,16 @@ import (
 )
 
 type (
-	NewIPRequest struct {
+	// input to POST /v1/infrastructure/ip/assign
+	AssignIPRequest struct {
 		Kind     IPKind                `json:"kind"`
 		ServerId string                `json:"server_id"`
 		Location *locationObj.Location `json:"location"`
 		Cycle    CycleIPMeta           `json:"cycle"`
 	}
 
-	NewIPResponse struct {
+	// output from POST /v1/infrastructure/ip/assign
+	AssignIPResponse struct {
 		IpId           string `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		CIDR           string `bson:"cidr" json:"cidr"`
@@ -22,7 +24,8 @@ type (
 		Network        string `bson:"network" json:"network"`
 	}
 
-	DeleteIPRequest struct {
+	// input to POST /v1/infrastructure/ip/release
+	ReleaseIPRequest struct {
 		Kind           IPKind                `json:"kind"`
 		IpId           string                `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string                `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?

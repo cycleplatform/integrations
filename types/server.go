@@ -3,8 +3,8 @@ package types
 import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type (
-	// input to POST /v1/infrastructure/server/create
-	NewServerRequest struct {
+	// input to POST /v1/infrastructure/server/provision
+	ProvisionServerRequest struct {
 		Hostname         string                 `json:"hostname"`
 		ModelId          string                 `json:"model_id"`
 		LocationId       string                 `json:"location_id"`
@@ -12,8 +12,8 @@ type (
 		Cycle            CycleServerMeta        `json:"cycle"`
 	}
 
-	// output from POST /v1/infrastructure/server/create
-	NewServerResponse struct {
+	// output from POST /v1/infrastructure/server/provision
+	ProvisionServerResponse struct {
 		ServerId string `json:"server_id"` // what is the ID of the server at the provider?
 		Auth     struct {
 			UUID       *string  `json:"uuid"`
@@ -32,8 +32,8 @@ type (
 		Cycle      CycleServerMeta `json:"cycle"`
 	}
 
-	// input to POST /v1/infrastructure/server/delete
-	DeleteServerRequest struct {
+	// input to POST /v1/infrastructure/server/decommission
+	DecommissionServerRequest struct {
 		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
 		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
 		ModelId    string          `json:"model_id"`
