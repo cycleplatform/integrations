@@ -5,16 +5,16 @@ import (
 )
 
 type (
-	// input to POST /v1/infrastructure/ip/assign
-	AssignIPRequest struct {
+	// input to POST /v1/infrastructure/ip/allocate
+	AllocateIPRequest struct {
 		Kind       IPKind      `json:"kind"`
 		ServerId   string      `json:"server_id"`
 		LocationId string      `json:"location_id"`
 		Cycle      CycleIPMeta `json:"cycle"`
 	}
 
-	// output from POST /v1/infrastructure/ip/assign
-	AssignIPResponse struct {
+	// output from POST /v1/infrastructure/ip/allocate
+	AllocateIPResponse struct {
 		IpId           string `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentID string `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		CIDR           string `bson:"cidr" json:"cidr"`
