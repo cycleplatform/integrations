@@ -42,10 +42,10 @@ type (
 	}
 
 	CycleServerMeta struct {
-		ServerID      *primitive.ObjectID `json:"server_id"`      // the id of the server @ cycle
-		ModelClass    *string             `json:"model_class"`    // the class of the server @ cycle
-		ModelCategory *string             `json:"model_category"` // the category of the server at Cycle
-		ModelID       *primitive.ObjectID `json:"model_id"`       // the id of the model @ cycle
-		LocationID    *primitive.ObjectID `json:"location_id"`    // the id of the location @ cycle
+		ServerID      primitive.ObjectID `json:"server_id"`      // the id of the server @ cycle
+		ModelClass    string             `json:"model_class"`    // the class of the server @ cycle
+		ModelCategory string             `json:"model_category"` // the category of the server at Cycle
+		ModelID       primitive.ObjectID `json:"model_id"`       // the id of the model @ cycle
+		LocationID    primitive.ObjectID `json:"location_id"`    // the id of the location @ cycle
 	}
 )

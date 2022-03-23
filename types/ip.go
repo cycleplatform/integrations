@@ -34,9 +34,11 @@ type (
 	}
 
 	CycleIPMeta struct {
-		PoolID     *primitive.ObjectID `json:"pool_id"`
-		ServerID   *primitive.ObjectID `json:"server_id"`
-		LocationID *primitive.ObjectID `json:"location_id"`
+		PoolID              *primitive.ObjectID `json:"pool_id"`
+		ServerID            primitive.ObjectID  `json:"server_id"`
+		ServerModelClass    string              `json:"server_model_class"`    // the class of the server @ cycle
+		ServerModelCategory string              `json:"server_model_category"` // the category of the server at Cycle
+		LocationID          primitive.ObjectID  `json:"location_id"`
 	}
 
 	IPKind string
