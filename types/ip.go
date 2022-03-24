@@ -45,6 +45,6 @@ type (
 )
 
 const (
-	IP_V6 IPKind = "v6"
-	IP_V4 IPKind = "v4"
+	IP_V6 IPKind = "ipv6"
+	IP_V4 IPKind = "ipv4"
 )
