@@ -67,8 +67,8 @@ type (
 	}
 
 	NIC struct {
-		Scope          string `bson:"scope" json:"scope"`
-		Type           string `bson:"type" json:"type"`
-		ThroughputMbps uint   `bson:"throughput_mbps" json:"throughput_mbps"`
+		Scope      string `bson:"scope" json:"scope"`
+		Type       string `bson:"type" json:"type"`
+		Throughput string `bson:"throughput" json:"throughput"`
 	}
 )
