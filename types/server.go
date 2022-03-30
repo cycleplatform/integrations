@@ -1,15 +1,24 @@
 package types
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
+import (
+	serverModelObj "github.com/cycleplatform/integrations/types/objects/server-model"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
 
 type (
 	// input to POST /v1/infrastructure/server/provision
 	ProvisionServerRequest struct {
-		Hostname         string                 `json:"hostname"`
-		ModelId          string                 `json:"model_id"`
-		LocationId       string                 `json:"location_id"`
-		ProvisionOptions map[string]interface{} `json:"provision_options"` // any extra provision options that might be needed for certain providers
-		Cycle            CycleServerMeta        `json:"cycle"`
+		Hostname         string                  `json:"hostname"`
+		ModelId          string                  `json:"model_id"`
+		LocationId       string                  `json:"location_id"`
+		ModelFeatures    serverModelObj.Features `json:"model_features"`    // the features associated with this model
+		ProvisionOptions ProvisionOptions        `json:"provision_options"` // any extra provision options that might be needed for certain providers
+		Cycle            CycleServerMeta         `json:"cycle"`
+	}
+
+	ProvisionOptions struct {
+		AttachedStorageSize *int    `bson:"attached_storage_size,omitempty" json:"storage_size,omitempty"`
+		ReservationId       *string `bson:"reservation_id,omitempty" json:"reservation_id,omitempty"`
 	}
 
 	// output from POST /v1/infrastructure/server/provision
