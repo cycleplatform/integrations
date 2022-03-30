@@ -12,9 +12,9 @@ type (
 
 	// output from POST /v1/location/configure
 	ConfigureLocationResponse struct {
-		Configured    bool           `json:"configured"`
-		Version       *string        `json:"version"`
-		Configuration *Configuration `json:"configuration"`
+		Configured    bool          `json:"configured"`
+		Version       *string       `json:"version"`
+		Configuration Configuration `json:"configuration"`
 	}
 
 	Configuration map[string]interface{}
