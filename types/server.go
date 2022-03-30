@@ -8,17 +8,13 @@ import (
 type (
 	// input to POST /v1/infrastructure/server/provision
 	ProvisionServerRequest struct {
-		Hostname         string                  `json:"hostname"`
-		ModelId          string                  `json:"model_id"`
-		LocationId       string                  `json:"location_id"`
-		ModelFeatures    serverModelObj.Features `json:"model_features"`    // the features associated with this model
-		ProvisionOptions ProvisionOptions        `json:"provision_options"` // any extra provision options that might be needed for certain providers
-		Cycle            CycleServerMeta         `json:"cycle"`
-	}
-
-	ProvisionOptions struct {
-		AttachedStorageSize *int    `bson:"attached_storage_size,omitempty" json:"storage_size,omitempty"`
-		ReservationId       *string `bson:"reservation_id,omitempty" json:"reservation_id,omitempty"`
+		Hostname              string                  `json:"hostname"`
+		ModelId               string                  `json:"model_id"`
+		LocationId            string                  `json:"location_id"`
+		ModelFeatures         serverModelObj.Features `json:"model_features"`    // the features associated with this model
+		ProvisionOptions      map[string]interface{}  `json:"provision_options"` // extra provision options specified from the platform
+		LocationConfiguration Configuration           `json:"location_configuration"`
+		Cycle                 CycleServerMeta         `json:"cycle"`
 	}
 
 	// output from POST /v1/infrastructure/server/provision
