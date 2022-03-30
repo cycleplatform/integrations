@@ -6,8 +6,9 @@ type (
 	// called when a request is made to a new region for the first time
 	// input to POST /v1/location/configure
 	ConfigureLocationRequest struct {
-		LocationId     string `json:"location_id"`
-		CurrentVersion string `json:"version"`
+		LocationId     string            `json:"location_id"`
+		CurrentVersion string            `json:"version"`
+		Cycle          CycleLocationMeta `json:"cycle"`
 	}
 
 	// output from POST /v1/location/configure
