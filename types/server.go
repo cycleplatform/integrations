@@ -25,7 +25,11 @@ type (
 
 	// input to GET /v1/infrastructure/server/provision-status
 	ProvisionServerStatusRequest struct {
-		ServerId string `json:"server_id"` // what is the ID of the server at the provider?
+		ServerId              string                  `json:"server_id"`         // what is the ID of the server at the provider?
+		ModelFeatures         serverModelObj.Features `json:"model_features"`    // the features associated with this model
+		ProvisionOptions      map[string]interface{}  `json:"provision_options"` // extra provision options specified from the platform
+		LocationConfiguration Configuration           `json:"location_configuration"`
+		Cycle                 CycleServerMeta         `json:"cycle"`
 	}
 
 	// output from GET /v1/infrastructure/server/provision-status
