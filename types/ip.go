@@ -16,12 +16,13 @@ type (
 
 	// output from POST /v1/infrastructure/ip/allocate
 	AllocateIPResponse struct {
-		IpId           string `json:"ip_id"`            // what is the ID of the ip at the provider?
-		IpAssignmentId string `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
-		CIDR           string `bson:"cidr" json:"cidr"`
-		Gateway        string `bson:"gateway" json:"gateway"`
-		Netmask        string `bson:"netmask" json:"netmask"`
-		Network        string `bson:"network" json:"network"`
+		IpId           string  `json:"ip_id"`            // what is the ID of the ip at the provider?
+		IpAssignmentId string  `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
+		CIDR           string  `bson:"cidr" json:"cidr"`
+		Gateway        string  `bson:"gateway" json:"gateway"`
+		Netmask        string  `bson:"netmask" json:"netmask"`
+		Network        string  `bson:"network" json:"network"`
+		NATPrivateIP   *string `bson:"nat_private_ip" json:"nat_private_ip"`
 	}
 
 	// input to POST /v1/infrastructure/ip/release
