@@ -29,6 +29,7 @@ type (
 		ModelFeatures         serverModelObj.Features `json:"model_features"`    // the features associated with this model
 		ProvisionOptions      map[string]interface{}  `json:"provision_options"` // extra provision options specified from the platform
 		LocationConfiguration Configuration           `json:"location_configuration"`
+		Extra                 map[string]interface{}  `json:"extra"` // extra information from the response of the ProvisionServer call
 		Cycle                 CycleServerMeta         `json:"cycle"`
 	}
 
@@ -46,20 +47,22 @@ type (
 
 	// input to POST /v1/infrastructure/server/restart
 	RestartServerRequest struct {
-		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
-		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
-		ModelId    string          `json:"model_id"`
-		LocationId string          `json:"location_id"`
-		Cycle      CycleServerMeta `json:"cycle"`
+		ServerId   string                 `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname   string                 `json:"hostname"`  // send hostname in case provider requires it
+		ModelId    string                 `json:"model_id"`
+		LocationId string                 `json:"location_id"`
+		Extra      map[string]interface{} `json:"extra"` // extra information associated with the server
+		Cycle      CycleServerMeta        `json:"cycle"`
 	}
 
 	// input to POST /v1/infrastructure/server/decommission
 	DecommissionServerRequest struct {
-		ServerId   string          `json:"server_id"` // what is the ID of the server at the provider?
-		Hostname   string          `json:"hostname"`  // send hostname in case provider requires it
-		ModelId    string          `json:"model_id"`
-		LocationId string          `json:"location_id"`
-		Cycle      CycleServerMeta `json:"cycle"`
+		ServerId   string                 `json:"server_id"` // what is the ID of the server at the provider?
+		Hostname   string                 `json:"hostname"`  // send hostname in case provider requires it
+		ModelId    string                 `json:"model_id"`
+		LocationId string                 `json:"location_id"`
+		Extra      map[string]interface{} `json:"extra"` // extra information associated with the server
+		Cycle      CycleServerMeta        `json:"cycle"`
 	}
 
 	CycleServerMeta struct {
