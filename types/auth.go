@@ -11,6 +11,11 @@ type (
 		Cycle        *CycleAuthMeta `json:"cycle,omitempty"`
 	}
 
+	// output from POST /v1/auth/verify
+	AuthVerifyResponse struct {
+		Valid bool `json:"valid"`
+	}
+
 	CycleAuthMeta struct {
 		HubName string `json:"hub_name"`
 		HubID   string `json:"hub_id"`
