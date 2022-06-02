@@ -48,6 +48,7 @@ type (
 	GPU struct {
 		Count  uint              `bson:"count" json:"count"`
 		Cores  *uint             `bson:"cores" json:"cores"`
+		VRAMGB *uint             `bson:"vram_gb" json:"vram_gb"`
 		Type   string            `bson:"type" json:"type"`
 		Shared *bool             `bson:"shared" json:"shared"`
 		Extra  map[string]string `bson:"extra" json:"extra,omitempty"`
