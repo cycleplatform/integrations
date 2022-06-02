@@ -3,6 +3,7 @@ package serverModelObj
 type (
 	ServerModel struct {
 		Name        string   `bson:"name" json:"name"`
+		Drivers     []string `bson:"drivers" json:"drivers"`
 		Description string   `bson:"description" json:"description"`
 		Specs       Specs    `bson:"specs" json:"specs"`
 		Provider    Provider `bson:"provider" json:"provider"`
