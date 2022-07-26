@@ -1,5 +1,10 @@
 package types
 
+import (
+	"gitlab.petrichor.io/sandstone/packages/errors/stackerr"
+	"strings"
+)
+
 type (
 	// Providers have many different things they might want during auth, we need to be flexibile.
 	Auth struct {
@@ -30,4 +35,34 @@ func (a *Auth) Sanitize() {
 	if a.Secret != nil && len(*a.Secret) > 5 {
 		*a.Secret = (*a.Secret)[:5] + "..."
 	}
+}
+
+func (a *Auth) Dirty(orig Auth) {
+	if a.APIKey != nil && strings.HasSuffix(*a.APIKey, "...") {
+		*a.APIKey = *orig.APIKey
+	}
+
+	if a.Secret != nil && strings.HasSuffix(*a.Secret, "...") {
+		*a.Secret = *orig.Secret
+	}
+}
+
+func (a *Auth) Validate() error {
+	if a.APIKey != nil && strings.TrimSpace(*a.APIKey) == "" {
+		return stackerr.Newf("a api key cannot be an empty string. if no api key is required, use null.")
+	}
+
+	if a.Region != nil && strings.TrimSpace(*a.Region) == "" {
+		return stackerr.Newf("a region cannot be an empty string. if no region is required, use null.")
+	}
+
+	if a.Namespace != nil && strings.TrimSpace(*a.Namespace) == "" {
+		return stackerr.Newf("a namespace cannot be an empty string. if no namespace is required, use null.")
+	}
+
+	if a.Secret != nil && strings.TrimSpace(*a.Secret) == "" {
+		return stackerr.Newf("a secret cannot be an empty string. if no secret is required, use null.")
+	}
+
+	return nil
 }
