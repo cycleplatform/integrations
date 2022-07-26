@@ -23,11 +23,11 @@ type (
 )
 
 func (a *Auth) Sanitize() {
-	if a.APIKey != nil {
+	if a.APIKey != nil && len(*a.APIKey) > 5 {
 		*a.APIKey = (*a.APIKey)[:5] + "..."
 	}
 
-	if a.Secret != nil {
+	if a.Secret != nil && len(*a.Secret) > 5 {
 		*a.Secret = (*a.Secret)[:5] + "..."
 	}
 }
