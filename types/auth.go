@@ -8,14 +8,14 @@ import (
 type (
 	// Providers have many different things they might want during auth, we need to be flexibile.
 	Auth struct {
-		ClientId      *string        `json:"client_id,omitempty"`
-		ApplicationId *string        `json:"application_id,omitempty"`
-		Namespace     *string        `json:"namespace,omitempty"` // can also double as 'project or subscription id'
-		Region        *string        `json:"region,omitempty"`
-		APIKey        *string        `json:"api_key,omitempty"` // can also double as 'token'
-		Secret        *string        `json:"secret,omitempty"`
-		Base64Config  *string        `json:"config,omitempty"` // if a provider needs a var more complex config, sent via base64
-		Cycle         *CycleAuthMeta `json:"cycle,omitempty"`
+		ClientId       *string        `json:"client_id,omitempty"`
+		SubscriptionId *string        `json:"subscription_id,omitempty"`
+		Namespace      *string        `json:"namespace,omitempty"` // can also double as 'project or subscription id'
+		Region         *string        `json:"region,omitempty"`
+		APIKey         *string        `json:"api_key,omitempty"` // can also double as 'token'
+		Secret         *string        `json:"secret,omitempty"`
+		Base64Config   *string        `json:"config,omitempty"` // if a provider needs a var more complex config, sent via base64
+		Cycle          *CycleAuthMeta `json:"cycle,omitempty"`
 	}
 
 	// output from POST /v1/auth/verify
