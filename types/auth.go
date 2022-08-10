@@ -50,8 +50,8 @@ func (a *Auth) Dirty(orig Auth) {
 }
 
 func (a *Auth) Validate() error {
-	if a.ApplicationId != nil && strings.TrimSpace(*a.ApplicationId) == "" {
-		return stackerr.Newf("an application id cannot be an empty string. if no application id is required, use null.")
+	if a.SubscriptionId != nil && strings.TrimSpace(*a.SubscriptionId) == "" {
+		return stackerr.Newf("a subscription id cannot be an empty string. if no subscription id is required, use null.")
 	}
 
 	if a.ClientId != nil && strings.TrimSpace(*a.ClientId) == "" {
