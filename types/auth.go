@@ -8,7 +8,8 @@ import (
 type (
 	// Providers have many different things they might want during auth, we need to be flexibile.
 	Auth struct {
-		Namespace    *string        `json:"namespace,omitempty"` // can also double as 'project'
+		ClientId     *string        `json:"client_id,omitempty"`
+		Namespace    *string        `json:"namespace,omitempty"` // can also double as 'project or application id'
 		Region       *string        `json:"region,omitempty"`
 		APIKey       *string        `json:"api_key,omitempty"` // can also double as 'token'
 		Secret       *string        `json:"secret,omitempty"`
@@ -48,6 +49,10 @@ func (a *Auth) Dirty(orig Auth) {
 }
 
 func (a *Auth) Validate() error {
+	if a.ClientId != nil && strings.TrimSpace(*a.ClientId) == "" {
+		return stackerr.Newf("a client id cannot be an empty string. if no client id is required, use null.")
+	}
+
 	if a.APIKey != nil && strings.TrimSpace(*a.APIKey) == "" {
 		return stackerr.Newf("a api key cannot be an empty string. if no api key is required, use null.")
 	}
