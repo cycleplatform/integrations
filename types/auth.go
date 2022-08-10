@@ -8,13 +8,14 @@ import (
 type (
 	// Providers have many different things they might want during auth, we need to be flexibile.
 	Auth struct {
-		ClientId     *string        `json:"client_id,omitempty"`
-		Namespace    *string        `json:"namespace,omitempty"` // can also double as 'project or application id'
-		Region       *string        `json:"region,omitempty"`
-		APIKey       *string        `json:"api_key,omitempty"` // can also double as 'token'
-		Secret       *string        `json:"secret,omitempty"`
-		Base64Config *string        `json:"config,omitempty"` // if a provider needs a var more complex config, sent via base64
-		Cycle        *CycleAuthMeta `json:"cycle,omitempty"`
+		ClientId      *string        `json:"client_id,omitempty"`
+		ApplicationId *string        `json:"application_id,omitempty"`
+		Namespace     *string        `json:"namespace,omitempty"` // can also double as 'project or subscription id'
+		Region        *string        `json:"region,omitempty"`
+		APIKey        *string        `json:"api_key,omitempty"` // can also double as 'token'
+		Secret        *string        `json:"secret,omitempty"`
+		Base64Config  *string        `json:"config,omitempty"` // if a provider needs a var more complex config, sent via base64
+		Cycle         *CycleAuthMeta `json:"cycle,omitempty"`
 	}
 
 	// output from POST /v1/auth/verify
@@ -49,6 +50,10 @@ func (a *Auth) Dirty(orig Auth) {
 }
 
 func (a *Auth) Validate() error {
+	if a.ApplicationId != nil && strings.TrimSpace(*a.ApplicationId) == "" {
+		return stackerr.Newf("an application id cannot be an empty string. if no application id is required, use null.")
+	}
+
 	if a.ClientId != nil && strings.TrimSpace(*a.ClientId) == "" {
 		return stackerr.Newf("a client id cannot be an empty string. if no client id is required, use null.")
 	}
