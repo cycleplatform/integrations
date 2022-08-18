@@ -1,6 +1,7 @@
 package types
 
 import (
+	"encoding/base64"
 	"gitlab.petrichor.io/sandstone/packages/errors/stackerr"
 	"strings"
 )
@@ -72,6 +73,16 @@ func (a *Auth) Validate() error {
 
 	if a.Secret != nil && strings.TrimSpace(*a.Secret) == "" {
 		return stackerr.Newf("a secret cannot be an empty string. if no secret is required, use null.")
+	}
+
+	if a.Base64Config != nil {
+		if strings.TrimSpace(*a.Base64Config) == "" {
+			return stackerr.Newf("a config cannot be an empty string. if no config is required, use null.")
+		}
+
+		if _, err := base64.StdEncoding.DecodeString(*a.Base64Config); err != nil {
+			return stackerr.Newf("config is not a valid base64 string")
+		}
 	}
 
 	return nil
