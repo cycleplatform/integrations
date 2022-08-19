@@ -21,8 +21,9 @@ type (
 	}
 
 	Provider struct {
-		LocationId string `bson:"location_id" json:"location_id"` // the primary ID of how we reference this location
-		Code       string `bson:"code" json:"code"`
+		LocationId        string   `bson:"location_id" json:"location_id"` // the primary ID of how we reference this location
+		Code              string   `bson:"code" json:"code"`
+		AvailabilityZones []string `bson:"availability_zones" json:"availability_zones"`
 	}
 
 	Features struct {

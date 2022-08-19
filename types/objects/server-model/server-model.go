@@ -17,10 +17,11 @@ type (
 	}
 
 	Provider struct {
-		Category  string   `bson:"category" json:"category"`
-		Class     string   `bson:"class" json:"class,omitempty"`
-		ModelId   string   `bson:"model_id" json:"model_id"` // the primary ID of how we reference this server / plan / model
-		Locations []string `bson:"locations" json:"locations"`
+		Category          string            `bson:"category" json:"category"`
+		Class             string            `bson:"class" json:"class,omitempty"`
+		ModelId           string            `bson:"model_id" json:"model_id"` // the primary ID of how we reference this server / plan / model
+		Locations         []string          `bson:"locations" json:"locations"`
+		AvailabilityZones map[string]string `bson:"availability_zones" json:"availability_zones"`
 	}
 
 	Specs struct {
