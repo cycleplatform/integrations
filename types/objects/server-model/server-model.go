@@ -21,8 +21,10 @@ type (
 		Class             string            `bson:"class" json:"class,omitempty"`
 		ModelId           string            `bson:"model_id" json:"model_id"` // the primary ID of how we reference this server / plan / model
 		Locations         []string          `bson:"locations" json:"locations"`
-		AvailabilityZones map[string]string `bson:"availability_zones" json:"availability_zones"`
+		AvailabilityZones AvailabilityZones `bson:"availability_zones" json:"availability_zones"`
 	}
+
+	AvailabilityZones map[string][]string
 
 	Specs struct {
 		Cpu      CPU       `bson:"cpu" json:"cpu"`
