@@ -11,6 +11,7 @@ type (
 		Hostname              string                  `json:"hostname"`
 		ModelId               string                  `json:"model_id"`
 		LocationId            string                  `json:"location_id"`
+		ZoneId                *string                 `json:"zone_id"`
 		ModelFeatures         serverModelObj.Features `json:"model_features"`    // the features associated with this model
 		ProvisionOptions      map[string]interface{}  `json:"provision_options"` // extra provision options specified from the platform
 		LocationConfiguration Configuration           `json:"location_configuration"`
@@ -25,7 +26,9 @@ type (
 
 	// input to GET /v1/infrastructure/server/provision-status
 	ProvisionServerStatusRequest struct {
-		ServerId              string                  `json:"server_id"`         // what is the ID of the server at the provider?
+		ServerId              string                  `json:"server_id"` // what is the ID of the server at the provider?
+		LocationId            string                  `json:"location_id"`
+		ZoneId                *string                 `json:"zone_id"`
 		ModelFeatures         serverModelObj.Features `json:"model_features"`    // the features associated with this model
 		ProvisionOptions      map[string]interface{}  `json:"provision_options"` // extra provision options specified from the platform
 		LocationConfiguration Configuration           `json:"location_configuration"`
@@ -51,6 +54,7 @@ type (
 		Hostname   string                 `json:"hostname"`  // send hostname in case provider requires it
 		ModelId    string                 `json:"model_id"`
 		LocationId string                 `json:"location_id"`
+		ZoneId     *string                `json:"zone_id"`
 		Extra      map[string]interface{} `json:"extra"` // extra information associated with the server
 		Cycle      CycleServerMeta        `json:"cycle"`
 	}
@@ -61,6 +65,7 @@ type (
 		Hostname   string                 `json:"hostname"`  // send hostname in case provider requires it
 		ModelId    string                 `json:"model_id"`
 		LocationId string                 `json:"location_id"`
+		ZoneId     *string                `json:"zone_id"`
 		Extra      map[string]interface{} `json:"extra"` // extra information associated with the server
 		Cycle      CycleServerMeta        `json:"cycle"`
 	}
