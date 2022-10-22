@@ -10,6 +10,7 @@ type (
 		Kind                  IPKind        `json:"kind"`
 		ServerId              string        `json:"server_id"`
 		LocationId            string        `json:"location_id"`
+		ZoneId                *string       `json:"zone_id"`
 		LocationConfiguration Configuration `json:"location_configuration"`
 		Cycle                 CycleIPMeta   `json:"cycle"`
 	}
@@ -32,6 +33,7 @@ type (
 		IpAssignmentId        string        `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		CIDR                  string        `bson:"cidr" json:"cidr"`
 		NATPrivateIP          *string       `bson:"nat_private_ip" json:"nat_private_ip"`
+		ZoneId                *string       `json:"zone_id"`
 		ServerId              string        `json:"server_id"`
 		LocationId            string        `json:"location_id"`
 		LocationConfiguration Configuration `json:"location_configuration"`
