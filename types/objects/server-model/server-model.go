@@ -36,8 +36,9 @@ type (
 	}
 
 	Features struct {
-		RAID  *string                `bson:"raid" json:"raid"`
-		Extra map[string]interface{} `bson:"extra" json:"extra,omitempty"` // provider specific features
+		RAID       *string                `bson:"raid" json:"raid"`
+		Hypervisor *bool                  `bson:"hypervisor" json:"hypervisor"`
+		Extra      map[string]interface{} `bson:"extra" json:"extra,omitempty"` // provider specific features
 	}
 
 	CPU struct {
