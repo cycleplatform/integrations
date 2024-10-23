@@ -1,6 +1,6 @@
-# gitlab.petrichor.io/sandstone/packages v0.0.2022-7.21.3
-## explicit; go 1.18
+# gitlab.petrichor.io/sandstone/packages v0.0.2024-10.9.2
+## explicit; go 1.22
 gitlab.petrichor.io/sandstone/packages/errors/stackerr
-# go.mongodb.org/mongo-driver v1.8.4
-## explicit; go 1.10
+# go.mongodb.org/mongo-driver v1.16.0
+## explicit; go 1.18
 go.mongodb.org/mongo-driver/bson/primitive
