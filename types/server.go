@@ -20,8 +20,9 @@ type (
 
 	// output from POST /v1/infrastructure/server/provision
 	ProvisionServerResponse struct {
-		ServerId string                 `json:"server_id"` // what is the ID of the server at the provider?
-		Extra    map[string]interface{} `json:"extra"`
+		ServerId         string                 `json:"server_id"` // what is the ID of the server at the provider?
+		LocationModified bool                   `json:"location_modified"`
+		Extra            map[string]interface{} `json:"extra"`
 	}
 
 	// input to GET /v1/infrastructure/server/provision-status
