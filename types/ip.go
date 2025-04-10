@@ -33,7 +33,7 @@ type (
 		IpId                  string        `json:"ip_id"`            // what is the ID of the ip at the provider?
 		IpAssignmentId        string        `json:"ip_assignment_id"` // what is the ID of the ip assignment at the provider?
 		CIDR                  CIDR          `bson:"cidr" json:"cidr"`
-		NATPrivateIP          *string       `bson:"nat_private_ip" json:"nat_private_ip"`
+		NATPrivateIP          *IP           `bson:"nat_private_ip" json:"nat_private_ip"`
 		ZoneId                *string       `json:"zone_id"`
 		ServerId              string        `json:"server_id"`
 		LocationId            string        `json:"location_id"`
