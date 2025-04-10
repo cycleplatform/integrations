@@ -2,7 +2,7 @@ package types
 
 import (
 	"encoding/base64"
-	"gitlab.petrichor.io/sandstone/packages/errors/stackerr"
+	"fmt"
 	"strings"
 )
 
@@ -52,36 +52,36 @@ func (a *Auth) Dirty(orig Auth) {
 
 func (a *Auth) Validate() error {
 	if a.SubscriptionId != nil && strings.TrimSpace(*a.SubscriptionId) == "" {
-		return stackerr.Newf("a subscription id cannot be an empty string. if no subscription id is required, use null.")
+		return fmt.Errorf("a subscription id cannot be an empty string. if no subscription id is required, use null.")
 	}
 
 	if a.ClientId != nil && strings.TrimSpace(*a.ClientId) == "" {
-		return stackerr.Newf("a client id cannot be an empty string. if no client id is required, use null.")
+		return fmt.Errorf("a client id cannot be an empty string. if no client id is required, use null.")
 	}
 
 	if a.APIKey != nil && strings.TrimSpace(*a.APIKey) == "" {
-		return stackerr.Newf("a api key cannot be an empty string. if no api key is required, use null.")
+		return fmt.Errorf("a api key cannot be an empty string. if no api key is required, use null.")
 	}
 
 	if a.Region != nil && strings.TrimSpace(*a.Region) == "" {
-		return stackerr.Newf("a region cannot be an empty string. if no region is required, use null.")
+		return fmt.Errorf("a region cannot be an empty string. if no region is required, use null.")
 	}
 
 	if a.Namespace != nil && strings.TrimSpace(*a.Namespace) == "" {
-		return stackerr.Newf("a namespace cannot be an empty string. if no namespace is required, use null.")
+		return fmt.Errorf("a namespace cannot be an empty string. if no namespace is required, use null.")
 	}
 
 	if a.Secret != nil && strings.TrimSpace(*a.Secret) == "" {
-		return stackerr.Newf("a secret cannot be an empty string. if no secret is required, use null.")
+		return fmt.Errorf("a secret cannot be an empty string. if no secret is required, use null.")
 	}
 
 	if a.Base64Config != nil {
 		if strings.TrimSpace(*a.Base64Config) == "" {
-			return stackerr.Newf("a config cannot be an empty string. if no config is required, use null.")
+			return fmt.Errorf("a config cannot be an empty string. if no config is required, use null.")
 		}
 
 		if _, err := base64.StdEncoding.DecodeString(*a.Base64Config); err != nil {
-			return stackerr.Newf("config is not a valid base64 string")
+			return fmt.Errorf("config is not a valid base64 string")
 		}
 	}
 

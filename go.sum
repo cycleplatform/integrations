@@ -1,6 +1,4 @@
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-gitlab.petrichor.io/sandstone/packages v0.0.2024-10.9.2 h1:vM99R3xgZVqJaU0ngbCXNPh8KgAyPN+u7XRbZx4LWXo=
-gitlab.petrichor.io/sandstone/packages v0.0.2024-10.9.2/go.mod h1:xGM02Zco+4j/ZorhUas3IAVijUPr5g5bolP7olmQzsM=
 go.mongodb.org/mongo-driver v1.16.0 h1:tpRsfBJMROVHKpdGyc1BBEzzjDUWjItxbVSZ8Ls4BQ4=
 go.mongodb.org/mongo-driver v1.16.0/go.mod h1:oB6AhJQvFQL4LEHyXi6aJzQJtBiTQHiAd83l0GdFaiw=
